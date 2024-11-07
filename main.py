@@ -1,12 +1,16 @@
-import socket
-import threading
-from typing import Tuple
+from server import Server
+
 
 def main():
     print("Logs from the server will be displayed here.")
-    socket: socket.socket = socket.create_server(("localhost", 12345), resuse_port=True)
-    print("Connection established.")
+    my_server = Server(host="localhost", port=6379, resuable=True)
 
-    
+    try:
+        my_server.start_socket()
+        my_server.start_listening()
+    except Exception as e:
+        print(f"Error starting the server: {e}")
+
+
 if __name__ == "__main__":
     main()
