@@ -1,2 +1,2 @@
-# redis-menace
-Building my Redis to become a menace!!
+# Cache
+In memory data storage
